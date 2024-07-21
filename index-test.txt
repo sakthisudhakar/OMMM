@@ -1,0 +1,15 @@
+<div class="container">
+    <link rel="stylesheet" href="styles1.css">
+	<div class="banner">
+		<!-- list for backgrounds -->
+		<ul class="slider">
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<!-- <div class="vcenter">
+			<h1>Lorem ipsum dolor.</h1>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, alias provident nesciunt architecto sed iste</p>
+		</div>vcenter ends -->
+ 	</div> <!--banner ends -->
+</div>

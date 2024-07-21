@@ -128,24 +128,30 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-size: 16px;
+	line-height: 1.5;
     background-color: #f4f4f4;
     color: #333;
 }
 
 .container {
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
+    /* display: flex; */
 }
 
 /* Header Styles */
 header {
-    background-color: rgba(146, 131, 131, 0.7);
+    background-color: rgba(123, 164, 180, 0.7);
     padding: 20px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
 }
 
 header .container {
@@ -156,12 +162,28 @@ header .container {
 
 header h1 {
     margin: 0;
-    font-size: 1.5em;
-    color: black;
+    font-size: 2em;
+    color: rgb(0, 0, 0);
 }
 
+header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+    color: #434242;
+}
+
+
 nav {
-    text-align: center;
+    /* text-align: end; */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    /* background-color: #1b0394; */
+    border: 1px solid #ccc; /* Add border to nav */
+    box-sizing: border-box;
+    margin-top: 10px;
 }
 
 nav a {
@@ -179,12 +201,84 @@ nav a:hover {
 /* Hero Section */
 .hero {
     height: 90vh;
-    background: url('coffee.jpg') no-repeat center center/cover;
+    background: "main.jpg";
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 80px; /* Adjust for fixed header */
+    padding-top: 80px; 
+}
+
+.banner{
+	width:100%;
+	height:100%;
+	/*background:pink;*/
+	/* creating an overlay*/
+	&:after{
+		content: '';
+		height: 100%;
+ 		width: 100%;
+		position:absolute;
+		top:0;
+		left:0;
+		background-color: rgba(0, 0, 0, 0.1);
+  		z-index: 1;
+	}
+}
+
+/* APPLYING BACKGROUNDS */
+.slider{
+	li{
+		width:100%;
+		height:100%;
+		position:absolute;
+		top:0;
+		background-size:cover;
+		background-repeat:no-repeat;
+		background-position:50% 50%;
+		z-index:0;
+		opacity:0;
+		transform:scale(2);
+		transform-origin:50% 50%;
+		transition:all 0.5 ease-in-out;
+	}
+}
+
+.slider li:nth-child(1){
+	background-image:url("main.jpg");
+	transition:all 0.5 ease-in-out;
+	animation:zoomout 15s linear 0s infinite;
+}
+.slider li:nth-child(2){
+	background-image:url("main1.jpg");
+	transition:all 0.5 ease-in-out;
+	animation:zoomout 15s linear 5s infinite;
+}
+.slider li:nth-child(3){
+	background-image:url("main2.jpg");
+	transition:all 0.5 ease-in-out;
+	animation:zoomout 15s linear 10s infinite;
+}
+
+
+/*  KEYFRAMES */
+
+@keyframes zoomout{
+	0%{
+		transform:scale(1.2);
+		opacity:1;
+	}
+	30%{
+		opacity:0.9;
+	}
+	34%{
+		transform:scale(1);
+		opacity:0;
+	}
+	100%{
+		transform:scale(1.2);
+		opacity:0;
+	}
 }
 
 /* Section Styles */
