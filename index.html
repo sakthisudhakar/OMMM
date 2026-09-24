@@ -1,147 +1,629 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMMM Detailing Solutions</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <div class="logo">OMMM Detailing Solutions</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Welcome to OMMM Detailing Solutions</h1>
-            <p>Innovative Solutions for Your Business</p>
-            <button>Learn More</button>
-        </div>
-    </section>
-
-    <section class="about" id="about">
-        <h2>About Us</h2>
-        <p>We are a leading company in providing top-notch solutions for businesses worldwide.</p>
-    </section>
-
-    <section class="services" id="services">
-        <h2>Our Services</h2>
-        <div class="service-cards">
-            <div class="card">
-                <h3>Service One</h3>
-                <p>Description of service one.</p>
-            </div>
-            <div class="card">
-                <h3>Service Two</h3>
-                <p>Description of service two.</p>
-            </div>
-            <div class="card">
-                <h3>Service Three</h3>
-                <p>Description of service three.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 OMMM Detailing Solutions. All rights reserved.</p>
-    </footer>
-
-    <script src="scripts.js"></script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMMM Detailing Solutions</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMMM Detailing Solutions Pvt Ltd</title>
+<meta name="description" content="OMMM Detailing Solutions Pvt Ltd — Rebar Detailing, 3D BIM Modeling, Estimation, Engineering Design and Manpower Deputation services.">
+<style>
+:root{--navy:#071A35;--ink:#0B1F3A;--muted:#536274;--orange:#F47A20;--orange-soft:#FFF1E6;--bg:#fff;--alt:#F3F6FA;--line:rgba(7,26,53,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Times New Roman",Times,serif;background:var(--bg);color:var(--ink);line-height:1.65}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit;font-family:"Times New Roman",Times,serif}
+button{cursor:pointer}
+.wrap{max-width:1280px;margin:auto;padding:0 40px}
+@media(max-width:640px){.wrap{padding:0 20px}}
+
+/* NAV */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);transition:background .25s ease,color .25s ease,border-color .25s ease}
+header.nav:not(.home-nav){background:var(--navy);border-bottom-color:rgba(255,255,255,.14)}
+header.nav:not(.home-nav) .brand,
+header.nav:not(.home-nav) .brand-text b,
+header.nav:not(.home-nav) .more-btn,
+header.nav:not(.home-nav) .menu-btn{color:#fff}
+header.nav:not(.home-nav) .brand-text small{color:rgba(255,255,255,.68)}
+header.nav:not(.home-nav) .links a{color:#fff}
+header.nav:not(.home-nav) .links a:hover,
+header.nav:not(.home-nav) .links a.active{color:var(--orange)}
+header.nav:not(.home-nav) .nav-drop .caret{color:rgba(255,255,255,.72)}
+header.nav:not(.home-nav) .nav-drop.open .caret{color:var(--orange)}
+header.nav:not(.home-nav) .mobile-menu{background:var(--navy);border-top-color:rgba(255,255,255,.14)}
+header.nav:not(.home-nav) .mobile-menu a{color:#fff;border-bottom-color:rgba(255,255,255,.14)}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px;max-width:1280px;margin:auto;padding:0 24px 0 16px}
+.brand{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:700;letter-spacing:.01em;white-space:nowrap;color:var(--ink)}
+.brand-logo{flex-shrink:0;width:44px;height:44px;object-fit:contain}
+.logo-mark{width:46px;height:46px;border:2px solid var(--orange);border-radius:10px;background:transparent;color:var(--orange);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:-0.5px;flex-shrink:0}
+.brand-text{display:flex;flex-direction:column;line-height:1.25}
+.brand-text b{font-size:15px;font-weight:700;color:var(--ink)}
+.brand-text small{font-size:10px;color:var(--muted);letter-spacing:.03em}
+.brand .brand-omm{color:var(--orange)}
+.links{display:flex;gap:32px;align-items:center;margin-left:auto;margin-right:6px}
+.links a{font-size:13px;font-weight:600;position:relative;padding:8px 0}
+.links a:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:.2s}
+.links a:hover,.links a.active{color:var(--orange)}
+.links a:hover:after,.links a.active:after{transform:scaleX(1)}
+.nav-drop{position:relative;display:flex;align-items:center;gap:3px}
+.nav-drop .caret{border:0;background:transparent;color:var(--muted);font-size:9px;padding:8px 2px;cursor:pointer;transition:.2s}
+.nav-drop.open .caret{transform:rotate(180deg);color:var(--orange)}
+.nav-drop-menu{display:none;position:absolute;left:-16px;top:42px;width:150px;background:#fff;border:1px solid var(--line);box-shadow:0 14px 35px rgba(7,26,53,.14);border-radius:6px;overflow:hidden;z-index:10}
+.nav-drop.open .nav-drop-menu{display:block}
+.nav-drop-menu button{display:block;width:100%;border:0;background:#fff;text-align:left;padding:12px 16px;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer}
+.nav-drop-menu button:hover{background:var(--orange-soft);color:var(--orange)}
+.more-wrap{position:relative}
+.more-btn{border:0;background:transparent;color:var(--ink);font-size:22px;line-height:1;padding:5px 8px}
+.more-menu{display:none;position:absolute;right:0;top:42px;width:150px;background:#fff;border:1px solid var(--line);box-shadow:0 14px 35px rgba(7,26,53,.14);border-radius:4px;overflow:hidden}
+.more-wrap.open .more-menu{display:block}
+.more-menu button{width:100%;border:0;background:#fff;text-align:left;padding:12px 15px;font-size:13px;color:var(--ink)}
+.more-menu button:hover{background:var(--orange-soft);color:var(--orange)}
+.menu-btn{display:none;border:0;background:none;font-size:24px;color:var(--ink)}
+.mobile-menu{display:none;background:#fff;border-top:1px solid var(--line);box-shadow:0 15px 30px rgba(7,26,53,.12)}
+.mobile-menu a{display:block;padding:14px 24px;border-bottom:1px solid var(--line);font-size:14px}
+.mobile-menu.open{display:block}
+@media(max-width:900px){.links{display:none}.menu-btn{display:block}.nav-inner{padding:0 20px}}
+
+/* HERO */
+.hero{min-height:640px;padding:190px 0 110px;background:var(--navy) url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;color:#fff;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(7,26,53,.94) 0%,rgba(7,26,53,.88) 45%,rgba(7,26,53,.55) 100%),radial-gradient(circle at 82% 20%,rgba(244,122,32,.16),transparent 40%),repeating-linear-gradient(115deg,rgba(255,255,255,.04) 0 2px,transparent 2px 46px)}
+.hero-inner{position:relative;z-index:1;max-width:850px}
+.hero-art{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:320px;height:320px;opacity:.85;z-index:0;pointer-events:none}
+@media(max-width:980px){.hero-art{display:none}}
+.hero h1{font-size:clamp(40px,6vw,70px);line-height:1.04;margin-bottom:18px}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--orange)}
+.hero p.tagline{color:rgba(255,255,255,.82);font-size:15px;letter-spacing:.02em;white-space:nowrap;overflow-x:auto}
+@media(max-width:560px){.hero p.tagline{white-space:normal}}
+.follow-wrap{position:relative;display:inline-block;margin-top:36px}
+.follow-btn{border:1px solid rgba(255,255,255,.45);background:transparent;color:#fff;padding:12px 24px;font-weight:700;border-radius:3px}
+.follow-btn:hover{background:var(--orange);border-color:var(--orange)}
+.follow-menu{display:none;position:absolute;left:0;top:48px;background:#fff;color:var(--ink);min-width:170px;box-shadow:0 14px 30px rgba(0,0,0,.25);border-radius:4px;overflow:hidden}
+.follow-wrap.open .follow-menu{display:block}
+.follow-menu a{display:block;padding:11px 14px;font-size:13px}
+.follow-menu a:hover{background:var(--orange-soft);color:var(--orange)}
+
+section{padding:95px 0}
+.section-head{max-width:760px;margin-bottom:48px}
+.section-head h2{font-size:clamp(28px,4vw,42px);line-height:1.12}
+.section-head p{color:var(--muted);font-size:15px;margin-top:14px}
+
+/* ABOUT */
+.about-intro{background:#fff}
+.vision-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.vision-copy{max-width:820px}
+.vision-copy h2{font-size:clamp(30px,4vw,45px);line-height:1.08;margin-bottom:22px}
+.vision-copy p{color:var(--muted);font-size:15px;margin-bottom:13px}
+.vision-art{background:var(--alt);border:1px solid var(--line);border-radius:14px;min-height:280px;display:flex;align-items:center;justify-content:center}
+@media(max-width:800px){.vision-grid{grid-template-columns:1fr}.vision-art{min-height:220px}}
+.who-we-are{margin-top:50px;padding-top:50px;border-top:1px solid var(--line)}
+.who-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:center}
+.who-art{background:var(--navy);border-radius:14px;min-height:300px;position:relative;overflow:hidden}
+.who-art:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 46px);z-index:1;pointer-events:none}
+.who-art img{width:100%;height:100%;min-height:300px;object-fit:cover;display:block;position:relative}
+@media(max-width:800px){.who-grid{grid-template-columns:1fr}.who-art{min-height:220px}.who-art img{min-height:220px}}
+.who-we-are h3{font-size:24px;margin-bottom:16px}
+.who-we-are p{color:var(--muted);font-size:15px;margin-bottom:13px;max-width:800px}
+.who-we-are strong{color:var(--ink)}
+
+.about-stats{margin-top:50px;display:grid;grid-template-columns:repeat(4,1fr);background:var(--alt);border:1px solid var(--line)}
+.about-stats .stat{padding:30px 20px;text-align:center;border-right:1px solid var(--line)}
+.about-stats .stat:last-child{border-right:0}
+.about-stats .stat strong{display:block;color:var(--orange);font-size:28px}
+.about-stats .stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+@media(max-width:700px){.about-stats{grid-template-columns:1fr 1fr}.about-stats .stat{border-bottom:1px solid var(--line)}}
+
+.process-banner{margin-top:60px;background:var(--navy);position:relative;overflow:hidden;padding:44px 40px}
+.process-banner:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.04) 0 2px,transparent 2px 46px)}
+.process-banner .eyebrow{position:relative;z-index:1}
+.process-banner h3{position:relative;z-index:1;color:#fff;font-size:24px;margin:8px 0 30px}
+.process-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.process-step .num{color:var(--orange);font-size:12px;letter-spacing:.1em;margin-bottom:8px}
+.process-step h4{color:#fff;font-size:15px;margin-bottom:8px}
+.process-step p{color:rgba(255,255,255,.65);font-size:12.5px}
+@media(max-width:900px){.process-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.process-grid{grid-template-columns:1fr}}
+
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+
+/* SERVICES */
+.services{background:var(--alt)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;transition:.25s;cursor:pointer}
+.svc-card:hover,.svc-card.selected{transform:translateY(-5px);box-shadow:0 14px 35px rgba(7,26,53,.10);border-color:var(--orange)}
+.svc-image{width:100%;height:150px;overflow:hidden;background:var(--alt)}
+.svc-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.svc-card:hover .svc-image img{transform:scale(1.04)}
+.svc-content{padding:22px 26px 24px}
+.svc-card .icon{width:46px;height:46px;border-radius:10px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;margin-bottom:16px}
+.svc-card .icon svg{width:24px;height:24px}
+.svc-card h3{font-size:17px;margin-bottom:7px}
+.svc-card p{font-size:13.5px;color:var(--muted)}
+.service-more{display:inline-block;margin-top:14px;color:var(--orange);font-size:12px;font-weight:700;border:0;background:none;padding:0;cursor:pointer}
+.service-detail{display:none;margin-top:28px;background:var(--navy);color:#fff;border-radius:14px;padding:34px}
+.service-detail.active{display:block}
+.service-detail-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start}
+.service-detail .eyebrow{color:var(--orange)}
+.service-detail h3{font-size:26px;line-height:1.15;margin-bottom:12px;color:#fff}
+.service-detail .lead{color:#dce5ef;max-width:680px;margin-bottom:22px}
+.detail-heading{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#fff;padding-bottom:8px;border-bottom:2px solid var(--orange);margin-bottom:14px;display:inline-block}
+.detail-list{list-style:none;columns:2}
+.detail-list li{padding:6px 0;font-size:13.5px;color:#dce5ef;position:relative;padding-left:16px;break-inside:avoid}
+.detail-list li:before{content:"";position:absolute;left:0;top:13px;width:5px;height:5px;border-radius:50%;background:var(--orange)}
+.detail-side h4{font-size:18px;margin-bottom:10px;color:#fff}
+.detail-side p{font-size:14px;color:#bdc9d7}
+.close-detail{display:inline-block;margin-top:20px;background:var(--orange);color:#fff;border:0;padding:10px 16px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer}
+@media(max-width:800px){.svc-grid{grid-template-columns:repeat(2,1fr)}.service-detail-inner{grid-template-columns:1fr}.detail-list{columns:1}}
+@media(max-width:560px){.svc-grid{grid-template-columns:1fr}}
+
+/* INDUSTRIES */
+.industries{background:#fff}
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.ind-card{background:#fff;padding:30px 25px;border-top:4px solid var(--c,var(--orange))}
+.ind-card:nth-child(1){--c:#F47A20}.ind-card:nth-child(2){--c:#0B1F3A}.ind-card:nth-child(3){--c:#2B7A78}
+.ind-card:nth-child(4){--c:#C7511F}.ind-card:nth-child(5){--c:#3B6EA5}.ind-card:nth-child(6){--c:#8A5A2B}
+.ind-card .ind-dot{width:10px;height:10px;border-radius:50%;background:var(--c,var(--orange));margin-bottom:14px}
+.ind-card h3{font-size:17px;margin-bottom:10px}
+.ind-card p{font-size:13.5px;color:var(--muted)}
+@media(max-width:800px){.ind-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.ind-grid{grid-template-columns:1fr}}
+
+/* PORTFOLIO */
+.portfolio{background:var(--alt)}
+.portfolio-banner{width:100%;height:260px;border-radius:14px;overflow:hidden;margin-bottom:44px;border:1px solid var(--line)}
+.portfolio-banner img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:700px){.portfolio-banner{height:170px}}
+.portfolio-empty{background:#fff;border:1px dashed var(--line);border-radius:10px;padding:70px 30px;text-align:center}.portfolio-admin{display:flex;justify-content:flex-end;margin:-20px 0 24px}.add-project-btn{background:var(--orange);color:#fff;border:0;border-radius:7px;padding:12px 18px;font-size:13px;font-weight:700;cursor:pointer}.add-project-btn:hover{opacity:.9}.project-image{width:100%;height:190px;object-fit:cover;display:block}.project-card{padding:0;overflow:hidden}.project-card .project-info{padding:22px 24px;display:flex;flex-direction:column;flex:1}.project-card .project-number{display:block}.project-card p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}.project-card p.expanded{display:block;-webkit-line-clamp:unset;overflow:visible}.project-card .project-arrow{display:inline-block;margin-top:auto}.project-actions{display:flex;gap:8px;margin-top:auto;padding-top:14px}.project-delete{background:#fff;border:1px solid #ddd;color:#777;border-radius:5px;padding:7px 10px;font-size:11px;cursor:pointer}.project-delete:hover{border-color:#d66;color:#c44}.project-modal{display:none;position:fixed;inset:0;background:rgba(7,26,53,.55);z-index:9999;align-items:center;justify-content:center;padding:20px}.project-modal.open{display:flex}.project-modal-box{background:#fff;width:min(620px,100%);max-height:90vh;overflow:auto;border-radius:12px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.2)}.project-modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.project-modal-head h3{margin:0;font-size:21px}.project-close{border:0;background:none;font-size:25px;cursor:pointer;color:#777}.project-form .field{margin-bottom:14px}.project-form label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}.project-form input,.project-form textarea,.project-form select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:6px;font:inherit;font-size:13px;box-sizing:border-box}.project-form textarea{min-height:90px;resize:vertical}.project-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.project-preview{display:none;width:100%;height:180px;object-fit:cover;border-radius:7px;margin-top:10px}.project-save{background:var(--orange);color:#fff;border:0;border-radius:6px;padding:11px 18px;font-weight:700;cursor:pointer}.project-note{font-size:11px;color:var(--muted);margin-top:8px}@media(max-width:600px){.project-form-row{grid-template-columns:1fr}}
+.portfolio-empty-icon{width:44px;height:44px;line-height:42px;margin:0 auto 18px;border:1.5px solid var(--orange);border-radius:50%;color:var(--orange);font-size:22px;font-weight:400}
+.portfolio-empty h3{font-size:19px;margin-bottom:8px}
+.portfolio-empty p{font-size:13.5px;color:var(--muted);max-width:420px;margin:0 auto}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project-card{background:#fff;border:1px solid var(--line);min-height:190px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:.2s}
+.project-card:hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(7,26,53,.10);border-color:var(--orange)}
+.project-number{color:var(--orange);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.project-card h3{font-size:21px;margin:6px 0}
+.project-card p{font-size:13.5px;color:var(--muted)}
+.project-arrow{color:var(--orange);font-weight:700;font-size:13px}
+@media(max-width:900px){.portfolio-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.portfolio-grid{grid-template-columns:1fr}}
+.back-link{display:inline-block;margin-top:30px;color:var(--orange);font-weight:700;font-size:13px}
+
+/* CTA */
+.cta{background:var(--navy);color:#fff;text-align:center;padding:80px 0}
+.cta h2{font-size:clamp(26px,3.6vw,36px);margin-bottom:16px}
+.cta p{color:rgba(255,255,255,.75);max-width:560px;margin:0 auto 30px}
+.btn{display:inline-block;padding:13px 24px;font-weight:700;border-radius:3px;font-size:14px}
+.btn-orange{background:var(--orange);color:#fff;border:1px solid var(--orange)}
+.btn-orange:hover{background:#d96816}
+
+/* CONTACT */
+.contact{background:#fff;padding-top:80px}
+.contact-panel{display:grid;grid-template-columns:.85fr 1.15fr;background:#fff;border:1px solid var(--line);box-shadow:0 15px 40px rgba(7,26,53,.08)}
+.contact-info{background:var(--navy);color:#fff;padding:42px 38px}
+.contact-info h2{font-size:28px;margin-bottom:28px}
+.contact-item{margin-bottom:22px}
+.contact-item label{display:block;color:rgba(255,255,255,.55);font-size:10px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.contact-item a,.contact-item p{font-size:14px;color:#fff}
+.socials{display:flex;gap:10px;margin-top:8px}
+.socials a{width:35px;height:35px;border:1px solid rgba(255,255,255,.35);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.socials svg{width:16px;height:16px}
+.contact-form{padding:42px 38px}
+.contact-form h3{font-size:22px;margin-bottom:8px}
+.contact-form .intro{font-size:13px;color:var(--muted);margin-bottom:22px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#fbfaf7;padding:12px 13px;border-radius:4px;color:var(--ink);outline:none}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(244,122,32,.12)}
+.submit-btn{border:0;background:var(--orange);color:#fff;padding:13px 24px;font-weight:700;border-radius:4px}
+.submit-btn:hover{background:#d96816}
+@media(max-width:800px){.contact-panel{grid-template-columns:1fr}}
+@media(max-width:560px){.form-row{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.75);padding:56px 0 24px}
+.footer-top{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:35px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.12)}
+.footer-brand{display:flex;gap:12px}
+.footer-brand h3{color:#fff;font-size:17px}
+.footer-brand p{font-size:13px;margin-top:12px;max-width:270px}
+.footer-col h4{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:10px}
+.footer-col p,.footer-col a{font-size:13px}
+.footer-col a:hover{color:var(--orange)}
+.footer-social{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.footer-social a{display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.75)}
+.footer-social a:hover{color:var(--orange)}
+.footer-social a span{font-size:13px}
+.footer-social .ico{width:30px;height:30px;border:1px solid rgba(255,255,255,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.footer-social svg{width:14px;height:14px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:22px;font-size:11px;flex-wrap:wrap;gap:10px}
+@media(max-width:800px){.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.footer-top{grid-template-columns:1fr}}
+
+.toast{position:fixed;right:20px;bottom:20px;background:var(--navy);color:#fff;padding:13px 17px;border-left:3px solid var(--orange);box-shadow:0 10px 25px rgba(0,0,0,.2);display:none;z-index:200;font-size:13px}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div>
-            <h1>OMMM Detailing Solutions</h1>
-            <p>Precision in every detail</p> </div>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#menu">Our Services</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+<header class="nav home-nav">
+  <div class="nav-inner">
+    <a class="brand" href="#home" data-page="home">
+    <img class="brand-logo" src="./logo.jpeg.jpeg" alt="OMMM Logo">
+    <span class="brand-text">
+        <b>OMMM Detailing Solutions Pvt Ltd</b>
+    </span>
+</a>
+    <nav class="links" aria-label="Primary navigation">
+      <a href="#home" data-page="home">Home</a><a href="#about" data-page="about">About</a><a href="#services" data-page="services">Services</a><a href="#industries" data-page="industries">Industries</a>
+      <div class="nav-drop" id="portfolioDrop"><a href="#portfolio" data-page="portfolio" id="portfolioNavLink">Portfolio</a><button type="button" class="caret" id="portfolioCaret" aria-label="Show project categories" aria-expanded="false">▾</button><div class="nav-drop-menu" id="portfolioDropMenu"></div></div>
+      <a href="#contact" data-page="contact">Contact</a>
+      <div class="more-wrap" id="moreWrap"><button class="more-btn" id="moreBtn" aria-label="More options" aria-expanded="false">⋮</button><div class="more-menu"><button type="button" id="helpBtn">Help</button><button type="button" id="feedbackBtn">Feedback</button></div></div>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#home" data-page="home">Home</a><a href="#about" data-page="about">About</a><a href="#services" data-page="services">Services</a><a href="#industries" data-page="industries">Industries</a><a href="#portfolio" data-page="portfolio">Portfolio</a><a href="#contact" data-page="contact">Contact</a>
+    <a href="#" id="mobileHelp">Help</a><a href="#" id="mobileFeedback">Feedback</a>
+  </nav>
+</header>
 
-    <section class="hero" id="home">
-        <div class="banner">
-        <!-- <img loading="lazy" decoding="async" src="main.jpg" height="600" width="1263" alt="Hero Image"> -->
-        <div class="banner">
-            <!-- list for backgrounds -->
-            <ul class="slider">
-                <li></li>
-                <li></li>
-                <li></li>
-		</ul></div>
-    </section>
+<main>
+<section id="home" class="hero">
+  <div class="wrap hero-inner">
+    <h1>OVERSEAS<br><em>METAL MODELING MASTERS</em></h1>
+    <p class="tagline">· Engineering · Professional Services · Technology · Consultancy</p>
+    <div class="follow-wrap" id="followWrap"><button class="follow-btn" id="followBtn" type="button">Follow Us →</button><div class="follow-menu"><a href="https://www.instagram.com/ommmdetailing" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/suyambu-raj-a34699385" target="_blank" rel="noopener">LinkedIn</a></div></div>
+  </div>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>Welcome to OMMM Detailing Solutions</p>
-            <p> We provide high quality services through our experienced and well-trained Structural Engineers and RC detailers. </p>
-            <p> our vast experience in the industry, we provide our clients with alternative proposals that were required to save time and money.</p>
-        </div>
-    </section>
+</section>
 
-    <section id="menu" class="section">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="menu-item">
-                <h3>Structural Engineering</h3>
-                <p>can support you with design and structural calculations.</p>
-            </div>
-            <div class="menu-item">
-                <h3>Electrical Engineering</h3>
-                <p>can support you with design and Electrical calculations.</p>
-            </div>
-            <div class="menu-item">
-                <h3>Rebar Detailing</h3>
-                <p>Rebar detailing expertise with an emphasis on fundamental competencies.</p>
-            </div>
-        </div>
-    </section>
+<section id="about" class="about-intro">
+  <div class="wrap">
+    <div class="vision-grid">
+      <div class="vision-copy">
+        <div class="eyebrow">Our Vision &amp; Mission</div>
+        <h2>Engineering expertise shaped by precision, technology and trust.</h2>
+        <p><strong>VISION</strong> — To become a globally trusted partner for innovative and reliable engineering solutions.</p>
+        <p><strong>MISSION</strong> — To deliver quality-driven engineering solutions through expertise, advanced technology, and customer-focused service.</p>
+      </div>
+      <div class="vision-art">
+        <svg viewBox="0 0 260 220" width="80%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="10" y="120" width="34" height="90" fill="#0B1F3A"/>
+          <rect x="52" y="80" width="34" height="130" fill="#F47A20"/>
+          <rect x="94" y="40" width="34" height="170" fill="#0B1F3A"/>
+          <rect x="136" y="95" width="34" height="115" fill="#536274"/>
+          <rect x="178" y="60" width="34" height="150" fill="#0B1F3A"/>
+          <line x1="10" y1="30" x2="230" y2="150" stroke="#F47A20" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="10" cy="30" r="5" fill="#F47A20"/><circle cx="80" cy="70" r="5" fill="#F47A20"/>
+          <circle cx="150" cy="100" r="5" fill="#F47A20"/><circle cx="230" cy="150" r="5" fill="#F47A20"/>
+        </svg>
+      </div>
+    </div>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Visit us at:</p>
-            <address>12, Janakiammal Street, West Mambalam, Chennai</address>
-            <p>For inquiries, call us at: <a href="tel:+1234567890">+91 9500031022</a></p>
+    <div class="who-we-are">
+      <div class="who-grid">
+        <div class="who-art"><img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Engineering and project team collaborating on-site"></div>
+        <div class="who-copy">
+          <h3>Who We Are</h3>
+          <p><strong>OMMM Detailing Solutions Pvt Limited</strong> is an engineering, professional services, technology, and consultancy company focused on delivering <strong>accurate, efficient, and reliable solutions</strong> for modern projects.</p>
+          <p>Under the brand <strong>OMMM — Oversis Metal Modeling Masters</strong>, we bring together engineering expertise and technology-driven solutions to support our clients from <strong>project planning to execution</strong>.</p>
+          <p>Our commitment is built on <strong>precision, quality, innovation, and client satisfaction</strong>, with a vision to create long-term value through dependable and professional services.</p>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 OMMM Detailing Solutions. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="about-stats">
+      <div class="stat"><strong>2026</strong><span>Year Established</span></div>
+      <div class="stat"><strong>50+</strong><span>Qualified Engineers</span></div>
+      <div class="stat"><strong>10+</strong><span>Industry Sectors</span></div>
+      <div class="stat"><strong>—</strong><span>Group Companies</span></div>
+    </div>
+
+    <div class="process-banner">
+      <div class="eyebrow">How We Work</div>
+      <h3>A clear workflow from project enquiry to final delivery.</h3>
+      <div class="process-grid">
+        <div class="process-step"><div class="num">01</div><h4>Project Enquiry</h4><p>We review your scope, drawings, standards, deliverables and target schedule.</p></div>
+        <div class="process-step"><div class="num">02</div><h4>Scope &amp; Planning</h4><p>The team confirms requirements, assigns resources and plans the detailing or engineering workflow.</p></div>
+        <div class="process-step"><div class="num">03</div><h4>Detailing &amp; Coordination</h4><p>2D detailing, 3D/BIM modeling, estimation or engineering work is developed to the agreed project requirements.</p></div>
+        <div class="process-step"><div class="num">04</div><h4>Internal QA/QC</h4><p>Deliverables are checked for accuracy, coordination, clarity and compliance before issue.</p></div>
+        <div class="process-step"><div class="num">05</div><h4>Delivery &amp; Support</h4><p>Final files are issued on schedule, with revision coordination and ongoing project support when required.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="section-head"><div class="eyebrow">What We Do</div><h2>Professional services for detailing, engineering and digital support.</h2><p>Click any service to open its detailed service view.</p></div>
+    <div class="svc-grid" id="serviceGrid"></div>
+    <div class="service-detail" id="serviceDetail"><div class="service-detail-inner"><div><div class="eyebrow">OMMM Services</div><h3 id="serviceTitle"></h3><p class="lead" id="serviceLead"></p><span class="detail-heading">Key Deliverables</span><ul class="detail-list" id="serviceList"></ul><button class="close-detail" id="closeService">Close Service</button></div><div class="detail-side"><h4>Project Support</h4><p>Share your project drawings, scope and requirements with our team. We can review the requested service and provide a suitable project response.</p><a class="back-link" style="color:var(--orange)" href="#contact" data-page="contact" id="serviceContactLink">Contact Us →</a></div></div></div>
+  </div>
+</section>
+
+<section id="industries" class="industries"><div class="wrap"><div class="section-head"><div class="eyebrow">Industries We Support</div><h2>Detailing and Engineering support for complex construction projects.</h2><p>OMMM supports contractors, consultants, fabricators and project teams with coordinated rebar detailing, BIM, estimation and engineering services.</p></div><div class="ind-grid">
+<div class="ind-card"><span class="ind-dot"></span><h3>Commercial &amp; Residential</h3><p>Rebar detailing for apartments, towers, offices, hotels and mixed-use developments.</p></div><div class="ind-card"><span class="ind-dot"></span><h3>Infrastructure &amp; Civil Works</h3><p>Coordination support for bridges, metros, roads, public facilities and major concrete structures.</p></div><div class="ind-card"><span class="ind-dot"></span><h3>Industrial &amp; Plant Projects</h3><p>Detailing, BIM coordination and engineering support for industrial buildings and plant structures.</p></div><div class="ind-card"><span class="ind-dot"></span><h3>Precast &amp; Concrete Fabrication</h3><p>Fabrication-ready reinforcement information for precast elements, beams, columns, panels and foundations.</p></div><div class="ind-card"><span class="ind-dot"></span><h3>Water &amp; Utility Structures</h3><p>Reinforcement detailing for tanks, retaining structures, utility buildings and water-related concrete works.</p></div><div class="ind-card"><span class="ind-dot"></span><h3>Global Project Support</h3><p>Remote, project-based detailing and engineering resources tailored to client standards, workflows and deadlines.</p></div>
+</div></div></section>
+
+<section id="portfolio" class="portfolio"><div class="wrap">
+  <div class="portfolio-banner"><img src="https://images.unsplash.com/photo-1721244654392-9c912a6eb236?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Architectural blueprint of a multi-story building"></div>
+  <div class="section-head"><div class="eyebrow">Portfolio</div><h2>Projects</h2><p>Explore selected detailing, BIM and engineering projects.</p></div>
+  <div class="portfolio-admin" id="portfolioAdmin" style="display:none"><button type="button" class="add-project-btn" id="addProjectBtn">+ Add New Project</button></div>
+  <div class="portfolio-empty" id="portfolioEmpty"><div class="portfolio-empty-icon">+</div><h3>No Projects Added Yet</h3><p>Please check back soon for our latest project work.</p></div>
+  <div class="portfolio-grid" id="projectGrid"></div>
+</div></section>
+
+
+<section class="cta"><div class="wrap"><h2>Have a Project in Mind?</h2><p>Partner with OMMM Detailing Solutions Pvt Ltd for professional, accurate and dependable rebar detailing and engineering support.</p><a href="#contact" class="btn btn-orange">Let's Discuss Your Project →</a></div></section>
+
+<section id="contact" class="contact"><div class="wrap"><div class="contact-panel"><div class="contact-info"><div class="eyebrow">Our Contact Details</div><h2>Get In Touch</h2><div class="contact-item"><label>Email</label><a href="mailto:info@ommmdetailing.com">info@ommmdetailing.com</a><br><a href="mailto:marketing@ommmdetailing.com">marketing@ommmdetailing.com</a></div><div class="contact-item"><label>Phone</label><a href="tel:+919361201576">+91-93612 01576</a></div><div class="contact-item"><label>Address</label><p>2nd Floor, No.84, B-Block, Murugesan Naicker Complex<br>Unit-2, Greams Rd, Thousand Lights West, Chennai, Tamil Nadu 600006</p></div><div class="contact-item"><label>Working Hours</label><p>Monday – Friday, 9:00 AM – 6:00 PM</p></div><div class="contact-item"><label>Follow Us</label><div class="socials"><a href="https://www.linkedin.com/in/suyambu-raj-a34699385" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.9c0-1.4-.03-3.2-2-3.2-2 0-2.3 1.5-2.3 3.1V21h-4V9Z"/></svg></a><a href="https://www.instagram.com/ommmdetailing" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a></div></div></div>
+<div class="contact-form"><h3>General Inquiry</h3><p class="intro">Tell us a little about your project and we'll get back to you.</p><form id="quoteForm"><div class="form-row"><div class="field"><label for="name">Full Name*</label><input id="name" required></div><div class="field"><label for="company">Company Name*</label><input id="company" required></div></div><div class="form-row"><div class="field"><label for="email">Email Address*</label><input id="email" type="email" required></div><div class="field"><label for="phone">Phone Number*</label><input id="phone" required></div></div><div class="field"><label for="service">Enquiring About*</label><select id="service" required><option value="" disabled selected>Select a service</option><option>2D Rebar Detailing</option><option>3D Rebar &amp; BIM</option><option>Estimation &amp; QS</option><option>Engineering Design</option><option>Manpower Deputation</option><option>IT Services</option><option>General Enquiry</option></select></div><div class="field"><label for="message">Message</label><textarea id="message" placeholder="Structure type, location, timeline, drawings you can share..."></textarea></div><button class="submit-btn" type="submit">Send Inquiry →</button></form></div></div></div></section>
+</main>
+
+<div class="project-modal" id="projectModal" aria-hidden="true">
+  <div class="project-modal-box">
+    <div class="project-modal-head"><h3 id="projectModalTitle">Add New Project</h3><button type="button" class="project-close" id="projectClose" aria-label="Close">×</button></div>
+    <form class="project-form" id="projectForm">
+      <input type="hidden" id="projectEditId" value="">
+      <div class="project-form-row">
+        <div class="field"><label for="projectName">Project Name*</label><input id="projectName" required placeholder="e.g. Commercial Building Project"></div>
+        <div class="field"><label for="projectLocation">Location</label><input id="projectLocation" placeholder="e.g. Toronto, Canada"></div>
+      </div>
+      <div class="project-form-row">
+        <div class="field"><label for="projectService">Service</label><select id="projectService"><option>2D Rebar Detailing</option><option>3D Rebar & BIM</option><option>Structural Steel BIM</option><option>RCC Structural BIM</option><option>BIM Coordination</option><option>Estimation & QS</option><option>Engineering Design</option><option>IT Services</option><option>Manpower Deputation</option></select></div>
+        <div class="field"><label for="projectStatus">Status</label><select id="projectStatus"><option>Completed</option><option>Ongoing</option></select></div>
+      </div>
+      <div class="field"><label for="projectDescription">Description</label><textarea id="projectDescription" placeholder="Briefly describe the work completed..."></textarea></div>
+      <div class="field"><label for="projectImage">Project Image*</label><input id="projectImage" type="file" accept="image/*" required><img class="project-preview" id="projectPreview" alt="Project preview"><div class="project-note">Choose a JPG, PNG or WebP image. It's resized automatically to keep the site fast.</div></div>
+      <button class="project-save" type="submit" id="projectSaveBtn">Add Project</button>
+    </form>
+  </div>
+</div>
+
+<div class="project-modal" id="adminLoginModal" aria-hidden="true">
+  <div class="project-modal-box" style="max-width:380px">
+    <div class="project-modal-head"><h3>Admin Login</h3><button type="button" class="project-close" id="adminLoginClose" aria-label="Close">×</button></div>
+    <form class="project-form" id="adminLoginForm">
+      <div class="field"><label for="adminEmail">Email</label><input id="adminEmail" type="email" required autocomplete="username"></div>
+      <div class="field"><label for="adminPassword">Password</label><input id="adminPassword" type="password" required autocomplete="current-password"></div>
+      <div class="project-note" id="adminLoginError" style="color:#c0392b;display:none"></div>
+      <button class="project-save" type="submit">Login</button>
+    </form>
+  </div>
+</div>
+
+<footer><div class="wrap"><div class="footer-top"><div class="footer-brand"><div><h3><span style="color:var(--orange)">OMMM</span> Detailing Solutions Pvt Ltd</h3><p>Professional rebar detailing, engineering, estimation and digital support for construction projects.</p></div></div><div class="footer-col"><h4>Corporate Office</h4><p>2nd Floor, No.84, B-Block, Murugesan Naicker Complex<br>Unit-2, Greams Rd, Chennai 600006<br>Ph No: +91-93612 01576</p></div><div class="footer-col"><h4>Email</h4><p><a href="mailto:info@ommmdetailing.com">info@ommmdetailing.com</a><br><a href="mailto:marketing@ommmdetailing.com">marketing@ommmdetailing.com</a></p></div><div class="footer-col"><h4>Follow Us</h4><div class="footer-social"><a href="https://www.linkedin.com/in/suyambu-raj-a34699385" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.9c0-1.4-.03-3.2-2-3.2-2 0-2.3 1.5-2.3 3.1V21h-4V9Z"/></svg></span><span>LinkedIn</span></a><a href="https://www.instagram.com/ommmdetailing" target="_blank" rel="noopener" aria-label="Instagram"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></span><span>Instagram</span></a></div></div></div><div class="footer-bottom"><span>Ready to discuss your project?</span><a class="back-link" href="#contact" data-page="contact" style="margin-top:0">Request a Quote →</a></div><div class="footer-bottom" style="justify-content:center">© 2026 OMMM Detailing Solutions Pvt Ltd. All rights reserved. &nbsp;·&nbsp; <a href="#" id="adminLoginLink" style="opacity:.45;font-size:11px">Admin</a></div></div></footer>
+<div class="toast" id="toast"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+const firebaseConfig={apiKey:"AIzaSyDVly9USjQqncRB06nnutAvDfWBlRJFfd0",authDomain:"ommm-baff3.firebaseapp.com",projectId:"ommm-baff3",storageBucket:"ommm-baff3.firebasestorage.app",messagingSenderId:"1019210680100",appId:"1:1019210680100:web:4e16e97168fdae66a0d5b1"};
+firebase.initializeApp(firebaseConfig);
+const auth=firebase.auth();
+const db=firebase.firestore();
+</script>
+
+<script>
+
+// PROJECT PORTFOLIO (Firebase Firestore + Auth)
+const projectGrid=document.getElementById('projectGrid');
+const portfolioEmpty=document.getElementById('portfolioEmpty');
+const portfolioAdmin=document.getElementById('portfolioAdmin');
+const projectModal=document.getElementById('projectModal');
+const projectForm=document.getElementById('projectForm');
+const projectImage=document.getElementById('projectImage');
+const projectPreview=document.getElementById('projectPreview');
+const projectModalTitle=document.getElementById('projectModalTitle');
+const projectSaveBtn=document.getElementById('projectSaveBtn');
+const projectEditId=document.getElementById('projectEditId');
+let projectImageData='';
+let isAdmin=false;
+let projectsCache=[];
+
+function escapeHtml(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));}
+
+function resizeImage(file,maxW,quality){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>{
+      const img=new Image();
+      img.onload=()=>{
+        let w=img.width,h=img.height;
+        if(w>maxW){h=Math.round(h*(maxW/w));w=maxW;}
+        const canvas=document.createElement('canvas');
+        canvas.width=w;canvas.height=h;
+        canvas.getContext('2d').drawImage(img,0,0,w,h);
+        resolve(canvas.toDataURL('image/jpeg',quality));
+      };
+      img.onerror=()=>reject(new Error('Could not read image'));
+      img.src=reader.result;
+    };
+    reader.onerror=()=>reject(new Error('Could not read file'));
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderProjects(){
+  portfolioEmpty.style.display=projectsCache.length?'none':'block';
+  projectGrid.innerHTML=projectsCache.map(p=>`<article class="project-card"><img class="project-image" src="${p.image}" alt="${escapeHtml(p.name)}"><div class="project-info"><span class="project-number">${escapeHtml(p.status)}${p.location?' · '+escapeHtml(p.location):''}</span><h3>${escapeHtml(p.name)}</h3><p id="desc-${p.id}"><strong>${escapeHtml(p.service)}</strong>${p.description?' — '+escapeHtml(p.description):''}</p><div class="project-actions"><button type="button" class="project-arrow" data-toggle="${p.id}" style="background:none;border:0;padding:0;cursor:pointer">Project Details →</button>${isAdmin?`<span><button type="button" class="project-delete" data-edit="${p.id}" style="margin-right:8px">Edit</button><button type="button" class="project-delete" data-delete="${p.id}">Delete</button></span>`:''}</div></div></article>`).join('');
+  projectGrid.querySelectorAll('[data-toggle]').forEach(btn=>btn.addEventListener('click',()=>{
+    const desc=document.getElementById('desc-'+btn.dataset.toggle);
+    const expanded=desc.classList.toggle('expanded');
+    btn.textContent=expanded?'Show less ↑':'Project Details →';
+  }));
+  if(isAdmin){
+    projectGrid.querySelectorAll('[data-delete]').forEach(btn=>btn.addEventListener('click',()=>{
+      if(confirm('Delete this project?')){db.collection('projects').doc(btn.dataset.delete).delete().catch(e=>alert('Error deleting: '+e.message));}
+    }));
+    projectGrid.querySelectorAll('[data-edit]').forEach(btn=>btn.addEventListener('click',()=>{
+      const p=projectsCache.find(x=>x.id===btn.dataset.edit);
+      if(p)openProjectModal(p);
+    }));
+  }
+}
+
+db.collection('projects').orderBy('createdAt','desc').onSnapshot(snap=>{
+  projectsCache=snap.docs.map(d=>({id:d.id,...d.data()}));
+  renderProjects();
+},err=>{console.error('Firestore error:',err);});
+
+function openProjectModal(project){
+  projectModal.classList.add('open');
+  projectModal.setAttribute('aria-hidden','false');
+  if(project){
+    projectModalTitle.textContent='Edit Project';
+    projectSaveBtn.textContent='Save Changes';
+    projectEditId.value=project.id;
+    document.getElementById('projectName').value=project.name||'';
+    document.getElementById('projectLocation').value=project.location||'';
+    document.getElementById('projectService').value=project.service||'';
+    document.getElementById('projectStatus').value=project.status||'Completed';
+    document.getElementById('projectDescription').value=project.description||'';
+    projectImageData=project.image||'';
+    if(projectImageData){projectPreview.src=projectImageData;projectPreview.style.display='block';}
+    projectImage.removeAttribute('required');
+  }else{
+    projectModalTitle.textContent='Add New Project';
+    projectSaveBtn.textContent='Add Project';
+    projectEditId.value='';
+    projectImage.setAttribute('required','required');
+  }
+}
+function closeProjectModal(){projectModal.classList.remove('open');projectModal.setAttribute('aria-hidden','true');projectForm.reset();projectPreview.style.display='none';projectImageData='';projectEditId.value='';}
+document.getElementById('addProjectBtn').addEventListener('click',()=>openProjectModal(null));
+document.getElementById('projectClose').addEventListener('click',closeProjectModal);
+projectModal.addEventListener('click',e=>{if(e.target===projectModal)closeProjectModal()});
+projectImage.addEventListener('change',async()=>{
+  const file=projectImage.files[0];
+  if(!file)return;
+  if(!file.type.startsWith('image/')){alert('Please choose an image file.');projectImage.value='';return;}
+  try{
+    projectImageData=await resizeImage(file,1200,0.72);
+    projectPreview.src=projectImageData;
+    projectPreview.style.display='block';
+  }catch(err){alert('Could not process that image, please try another.');}
+});
+projectForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!isAdmin){alert('Please login as admin first.');return;}
+  if(!projectImageData){alert('Please choose a project image.');return;}
+  const data={
+    name:document.getElementById('projectName').value.trim(),
+    location:document.getElementById('projectLocation').value.trim(),
+    service:document.getElementById('projectService').value,
+    status:document.getElementById('projectStatus').value,
+    description:document.getElementById('projectDescription').value.trim(),
+    image:projectImageData
+  };
+  projectSaveBtn.disabled=true;
+  try{
+    const editId=projectEditId.value;
+    if(editId){
+      await db.collection('projects').doc(editId).update(data);
+    }else{
+      data.createdAt=firebase.firestore.FieldValue.serverTimestamp();
+      await db.collection('projects').add(data);
+    }
+    closeProjectModal();
+    document.getElementById('portfolio').scrollIntoView({behavior:'smooth',block:'start'});
+  }catch(err){
+    alert('Error saving project: '+err.message);
+  }
+  projectSaveBtn.disabled=false;
+});
+
+// ADMIN LOGIN
+const adminLoginModal=document.getElementById('adminLoginModal');
+const adminLoginForm=document.getElementById('adminLoginForm');
+const adminLoginLink=document.getElementById('adminLoginLink');
+const adminLoginError=document.getElementById('adminLoginError');
+adminLoginLink.addEventListener('click',e=>{
+  e.preventDefault();
+  if(isAdmin){
+    auth.signOut();
+  }else{
+    adminLoginModal.classList.add('open');
+    adminLoginModal.setAttribute('aria-hidden','false');
+  }
+});
+document.getElementById('adminLoginClose').addEventListener('click',()=>{
+  adminLoginModal.classList.remove('open');
+  adminLoginModal.setAttribute('aria-hidden','true');
+});
+adminLoginModal.addEventListener('click',e=>{if(e.target===adminLoginModal){adminLoginModal.classList.remove('open');adminLoginModal.setAttribute('aria-hidden','true');}});
+adminLoginForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  adminLoginError.style.display='none';
+  const email=document.getElementById('adminEmail').value.trim();
+  const password=document.getElementById('adminPassword').value;
+  try{
+    await auth.signInWithEmailAndPassword(email,password);
+    adminLoginModal.classList.remove('open');
+    adminLoginModal.setAttribute('aria-hidden','true');
+    adminLoginForm.reset();
+  }catch(err){
+    adminLoginError.textContent='Login failed: incorrect email or password.';
+    adminLoginError.style.display='block';
+  }
+});
+auth.onAuthStateChanged(user=>{
+  isAdmin=!!user;
+  portfolioAdmin.style.display=isAdmin?'block':'none';
+  adminLoginLink.textContent=isAdmin?'Logout (Admin)':'Admin';
+  renderProjects();
+});
+
+const services=[
+ {title:'2D Rebar Detailing',lead:'Precise, construction-ready reinforcement detailing developed for accuracy, clarity and efficient site execution — covering everything from shop drawings to fabrication-ready output.',items:['Rebar Shop Drawings','Rebar Layout Drawings','Reinforcement Detailing','Bar Bending Schedules (BBS)','Rebar Quantity Takeoff','Rebar Fabrication Drawings','RCC / Reinforced Concrete Detailing','Structural Drawing Coordination']},
+ {title:'3D Rebar & BIM',lead:'Intelligent 3D reinforcement models and coordinated BIM deliverables that help teams catch clashes early and keep every discipline aligned on one model.',items:['3D Rebar Modeling','BIM Reinforcement Modeling','Clash Detection','Construction Sequencing','LOD 300 / 350 / 400 Modeling','IFC Deliverables','As-Built BIM Models']},
+ {title:'Estimation & QS',lead:'Accurate quantity and estimation support for tendering, procurement and cost control, giving project teams reliable numbers at every stage.',items:['Rebar Quantity Take-Off','Steel Estimation','BOQ Preparation','Procurement Quantities','Material Reconciliation','Billing Quantities','Steel Weight Reports']},
+ {title:'Engineering Design',lead:'Multidisciplinary engineering support aligned with project requirements, from early concept through to construction-ready documentation.',items:['Civil & Structural Engineering','Mechanical & Piping Engineering','Process & Electrical Engineering','Instrumentation & Control','FEED & Detailed Engineering','Construction & QA/QC Support','Commissioning Support']},
+ {title:'Manpower Deputation',lead:'Qualified engineering resources available for site-based or remote project support, scaled to match your project timeline and requirements.',items:['Rebar Detailers & BIM Modelers','Civil & Structural Engineers','Mechanical & Piping Engineers','QA/QC & Site Engineers','Project Coordinators']},
+ {title:'IT Services',lead:'Technology solutions supporting business operations, digital workflows and automation, helping teams work faster and more accurately.',items:['Software Development','Web Development','IT Support Services','Digital Solutions','Business Automation','Technology Consulting']}
+];
+const navLinks=[...document.querySelectorAll('[data-page]')];
+function go(page){const el=document.getElementById(page);if(!el)return;document.querySelectorAll('.links a[data-page]').forEach(a=>a.classList.toggle('active',a.dataset.page===page));el.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('mobileMenu').classList.remove('open');}
+navLinks.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();go(a.dataset.page)}));
+const followWrap=document.getElementById('followWrap'),followBtn=document.getElementById('followBtn');followBtn.addEventListener('click',e=>{e.stopPropagation();followWrap.classList.toggle('open')});
+const moreWrap=document.getElementById('moreWrap'),moreBtn=document.getElementById('moreBtn');moreBtn.addEventListener('click',e=>{e.stopPropagation();const open=moreWrap.classList.toggle('open');moreBtn.setAttribute('aria-expanded',open)});document.addEventListener('click',()=>{moreWrap.classList.remove('open');followWrap.classList.remove('open')});
+const toast=document.getElementById('toast');function showToast(msg){toast.textContent=msg;toast.style.display='block';setTimeout(()=>toast.style.display='none',3500)}
+document.getElementById('helpBtn').onclick=()=>{moreWrap.classList.remove('open');showToast('For assistance, please use the Contact section or email info@ommmdetailing.com.');};document.getElementById('feedbackBtn').onclick=()=>{moreWrap.classList.remove('open');showToast('We value your feedback. Please share it through the Contact section.');};
+const mobileMenu=document.getElementById('mobileMenu');document.getElementById('menuBtn').onclick=()=>mobileMenu.classList.toggle('open');document.getElementById('mobileHelp').onclick=e=>{e.preventDefault();mobileMenu.classList.remove('open');showToast('For assistance, please use the Contact section or email info@ommmdetailing.com.');};document.getElementById('mobileFeedback').onclick=e=>{e.preventDefault();mobileMenu.classList.remove('open');showToast('We value your feedback. Please share it through the Contact section.');};
+const serviceGrid=document.getElementById('serviceGrid');
+const svcIcons=[
+ '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V8l6-4 6 4v12M4 12h12M10 4v16" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+ '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" stroke-linejoin="round"/><path d="M12 3v18M4 7.5l8 4.5 8-4.5" stroke-linejoin="round"/></svg>',
+ '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h2M8 15h2M12 15h2M16 15h2" stroke-linecap="round"/></svg>',
+ '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke-linecap="round"/></svg>',
+ '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5" stroke-linecap="round"/></svg>',
+ '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4" stroke-linecap="round"/></svg>'
+];
+const svcImages=[
+ 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80',
+ 'https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=900&q=80',
+ 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=900&q=80',
+ 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80',
+ 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80',
+ 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80'
+];
+serviceGrid.innerHTML=services.map((s,i)=>`<div class="svc-card" data-service="${i}"><div class="svc-image"><img src="${svcImages[i]}" alt="${s.title}" loading="lazy"></div><div class="svc-content"><div class="icon">${svcIcons[i]}</div><h3>${s.title}</h3><p>${s.lead}</p><button type="button" class="service-more">View detailed service →</button></div></div>`).join('');
+const detail=document.getElementById('serviceDetail'),title=document.getElementById('serviceTitle'),lead=document.getElementById('serviceLead'),list=document.getElementById('serviceList');let activeServiceTitle='';document.querySelectorAll('.svc-card').forEach((card,i)=>card.addEventListener('click',()=>{document.querySelectorAll('.svc-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');const s=services[i];title.textContent=s.title;lead.textContent=s.lead;list.innerHTML=s.items.map(x=>'<li>'+x+'</li>').join('');activeServiceTitle=s.title;detail.classList.add('active');detail.scrollIntoView({behavior:'smooth',block:'center'});}));document.getElementById('closeService').onclick=()=>{detail.classList.remove('active');document.querySelectorAll('.svc-card').forEach(c=>c.classList.remove('selected'));document.getElementById('services').scrollIntoView({behavior:'smooth'});};document.getElementById('serviceContactLink').addEventListener('click',()=>{const sel=document.getElementById('service');[...sel.options].forEach(o=>{if(o.value===activeServiceTitle)sel.value=activeServiceTitle;});});
+function openPortfolio(){document.getElementById('portfolio').scrollIntoView({behavior:'smooth',block:'start'});portfolioDrop.classList.remove('open');}
+const portfolioDropMenu=document.getElementById('portfolioDropMenu'),portfolioDrop=document.getElementById('portfolioDrop'),portfolioCaret=document.getElementById('portfolioCaret');
+portfolioDropMenu.innerHTML='<button type="button" id="projectsMenuBtn">Projects</button>';
+document.getElementById('projectsMenuBtn').addEventListener('click',e=>{e.stopPropagation();openPortfolio();});
+portfolioCaret.addEventListener('click',e=>{e.stopPropagation();const open=portfolioDrop.classList.toggle('open');portfolioCaret.setAttribute('aria-expanded',open);});
+document.addEventListener('click',()=>portfolioDrop.classList.remove('open'));
+document.getElementById('quoteForm').addEventListener('submit',e=>{e.preventDefault();const s=document.getElementById('service').value;const subject='Enquiry: '+s;const body=['Name: '+document.getElementById('name').value,'Company: '+document.getElementById('company').value,'Email: '+document.getElementById('email').value,'Phone: '+document.getElementById('phone').value,'Service Needed: '+s,'','Message:',document.getElementById('message').value].join('\n');window.location.href='mailto:marketing@ommmdetailing.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);showToast('Thank you for your enquiry! Our team will get back to you soon.');e.target.reset();});
+const sections=['home','about','services','industries','portfolio','contact'].map(id=>document.getElementById(id));
+const siteHeader=document.querySelector('header.nav');
+function updateHeaderState(){
+  let current='home',pos=scrollY+130;
+  sections.forEach(s=>{if(s.offsetTop<=pos)current=s.id});
+  siteHeader.classList.toggle('home-nav',current==='home');
+  document.querySelectorAll('.links a[data-page]').forEach(a=>a.classList.toggle('active',a.dataset.page===current));
+}
+window.addEventListener('scroll',updateHeaderState,{passive:true});
+updateHeaderState();
+</script>
 </body>
 </html>
